@@ -293,36 +293,33 @@ nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 " ----------------------------------------------
-" Auto-complete shortcuts
+" Snippet settings
 " ----------------------------------------------
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+" ----------------------------------------------
+" Auto-complete shortcuts
+" ----------------------------------------------
+
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
 let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+
 " Set minimum syntax keyword length.
 let g:neocomplcache_min_syntax_length = 2
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Enable heavy features.
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : '',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
     \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+    \ }
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
@@ -331,18 +328,16 @@ endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
-" inoremap <expr><C-g>     neocomplcache#undo_completion()
-" inoremap <expr><C-l>     neocomplcache#complete_common_string()
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
+" <CR>: close popup and save indent
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return neocomplcache#smart_close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  " return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 endfunction
 
+" <Space>: close popup and add space
 inoremap <silent> <Space> <C-r>=<SID>my_space_function()<CR>
 function! s:my_space_function()
   return neocomplcache#smart_close_popup() . "\<Space>"
@@ -352,10 +347,6 @@ endfunction
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " ESC to bail out
 inoremap <expr><Esc>  neocomplcache#cancel_popup()."\<Esc>"
-
-
-" AutoComplPop like behavior.
-" let g:neocomplcache_enable_auto_select = 1
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
