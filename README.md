@@ -55,6 +55,7 @@ For this config, the leader is the comma button. This is shown in the following 
 See the plugins' web pages for more information. The keybindings listed are mostly
 just those defined or overridden locally, not the ones provided by default.
 
+
 ### Ack
 This plugin is a front for the Perl module App::Ack. Ack can be used as a replacement for 99% of the uses of grep.
 (more)[http://www.vim.org/scripts/script.php?script_id=2572]
@@ -172,6 +173,16 @@ Keys               | Function
   `C`              | Set the current folder to be the root of the tree
   `p`              | Go to parent of selected item
   `?`              | Toggle the help list
+
+
+### NeoCompleCache
+Auto completion popups as you type ([more](https://github.com/Shougo/neocomplcache.vim))
+
+Keys                | Function
+------------------- | --------------------
+  `<tab>`           | Select the next auto complete option
+  `<space>`         | Use selected completion and move on
+  `<ESC>`           | Cancel completion (remove selected)
 
 
 ### projector mode
