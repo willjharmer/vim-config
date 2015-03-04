@@ -482,6 +482,7 @@ runtime! plugin/matchit.vim
 
 " Fix supertab/endwise incompatibility
 let g:SuperTabCrMapping = 0
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Highlight trailing whitespace
 highlight RedundantSpaces term=standout ctermbg=red guibg=red
