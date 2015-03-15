@@ -8,11 +8,15 @@ Plug 'AdamWhittingham/projector_mode'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'bogado/file-line'
 Plug 'colorizer'
+Plug 'ecomba/vim-ruby-refactoring'
 Plug 'godlygeek/tabular'
+Plug 'gregsexton/MatchTag'
+Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'regedarek/ZoomWin'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-haml'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-repeat'
@@ -43,6 +47,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 
 " Snippets and autocomplete
+Plug 'honza/vim-snippets'
+Plug 'Shougo/neocomplcache'
+Plug 'Shougo/neosnippet'
 Plug 'tpope/vim-endwise'
 
 " Extra syntax highlighting and language support
@@ -293,18 +300,9 @@ nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 " ----------------------------------------------
-" Snippet settings
-" ----------------------------------------------
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" ----------------------------------------------
 " Auto-complete shortcuts
 " ----------------------------------------------
 
-"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
@@ -363,6 +361,30 @@ endif
 let g:neocomplcache_force_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_force_omni_patterns.c    = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplcache_force_omni_patterns.cpp  = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+
+" ----------------------------------------------
+" Snippet settings
+" ----------------------------------------------
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 " ----------------------------------------------
 " Map Uncommon Filetype for Syntax Highlighting
