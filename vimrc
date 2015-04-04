@@ -47,9 +47,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 
 " Snippets and autocomplete
-Plug 'honza/vim-snippets'
 Plug 'Shougo/neocomplcache'
 Plug 'Shougo/neosnippet'
+Plug 'honza/vim-snippets'
 Plug 'tpope/vim-endwise'
 
 " Extra syntax highlighting and language support
@@ -302,21 +302,19 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 " ----------------------------------------------
 " Auto-complete shortcuts
 " ----------------------------------------------
-
+let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
 
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 2
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
+    \   'default' : '',
+    \   'vimshell' : $HOME.'/.vimshell_hist',
+    \   'scheme' : $HOME.'/.gosh_completions'
     \ }
 
 " Define keyword.
@@ -329,10 +327,10 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
-" <CR>: close popup and save indent
+" <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+  return neocomplcache#smart_close_popup() . "\<CR>"
 endfunction
 
 " <Space>: close popup and add space
@@ -341,10 +339,11 @@ function! s:my_space_function()
   return neocomplcache#smart_close_popup() . "\<Space>"
 endfunction
 
-" Tab to change selection
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" ESC to bail out
-inoremap <expr><Esc>  neocomplcache#cancel_popup()."\<Esc>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -359,21 +358,19 @@ if !exists('g:neocomplcache_force_omni_patterns')
 endif
 
 let g:neocomplcache_force_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-let g:neocomplcache_force_omni_patterns.c    = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.cpp  = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
-
-" ----------------------------------------------
-" Snippet settings
-" ----------------------------------------------
+" NeoSnippet Settings
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
