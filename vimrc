@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 " ----------------------------------------------
 " Define all the plugins!
 " ----------------------------------------------
+
 Plug 'AdamWhittingham/projector_mode'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'bogado/file-line'
@@ -424,6 +425,8 @@ let g:airline_left_sep = ""
 let g:airline_left_alt_sep = ""
 let g:airline_right_sep = ""
 let g:airline_right_alt_sep = ""
+let g:airline_section_z = '%c, %l/%L'
+
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
