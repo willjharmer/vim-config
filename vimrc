@@ -356,13 +356,13 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+inoremap <silent><CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return neocomplcache#smart_close_popup() . "\<CR>"
 endfunction
 
 " <Space>: close popup and add space
-inoremap <silent> <Space> <C-r>=<SID>my_space_function()<CR>
+"inoremap <silent><Space> <C-r>=<SID>my_space_function()<CR>
 function! s:my_space_function()
   return neocomplcache#smart_close_popup() . "\<Space>"
 endfunction
@@ -371,19 +371,15 @@ endfunction
 imap <expr><TAB> neosnippet#jumpable() ?
   \ "\<Plug>(neosnippet_jump)"
   \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#jumpable() ?
-  \ "\<Plug>(neosnippet_jump)"
-  \: pumvisible() ? "\<C-n>" : "\<TAB>"
 
 imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "<TAB>"
 
 " Space to insert a snippet
-imap <expr><space> neosnippet#expandable() ?
-  \ "\<Plug>(neosnippet_expand)"
-  \: pumvisible() ? "\<C-n>" : "\<space>"
-smap <expr><space> neosnippet#expandable() ?
-  \ "\<Plug>(neosnippet_expand)"
-  \: pumvisible() ? "\<C-n>" : "\<space>"
+imap <expr><Space> pumvisible() ?
+  \ neosnippet#expandable() ?
+    \ "\<Plug>(neosnippet_expand)"
+    \ : <SID>my_space_function()
+  \ : "\<space>"
 
 
 " ----------------------------------------------
