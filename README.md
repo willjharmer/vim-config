@@ -51,9 +51,16 @@ A large number of the useful commands in Vim start with the 'leader' key, so Vim
 
 For this config, the leader is the comma button. This is shown in the following notes as `<space>`
 
+## Using Autocompletion & Snippets
+When typing a word, Autocompletion examples will pop up.
+`<tab>` to move through the list (`<shift-tab>` to move backwards)
+`<space>` will leave the selected completion in place and add a space so you can continue typing.
+If the completion is a snippet (a short template with sections to fill out), you can press `<shift-space>` to insert it and then use `<tab>` to fill in the template slots.
+
 ## Plugins - all the goodies!
 See the plugins' web pages for more information. The keybindings listed are mostly
 just those defined or overridden locally, not the ones provided by default.
+
 
 ### Ack
 This plugin is a front for the Perl module App::Ack. Ack can be used as a replacement for 99% of the uses of grep.
