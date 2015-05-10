@@ -44,6 +44,9 @@ Plug 'tpope/vim-surround'
 
 " Snippets and autocomplete
 Plug 'tpope/vim-endwise'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Extra syntax highlighting and language support
 Plug 'scrooloose/syntastic'
@@ -335,6 +338,24 @@ if version >= 730
 endif
 
 " ----------------------------------------------
+" Autocompletion and Snippets config
+" ----------------------------------------------
+
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>', '<tab>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>', '<s-tab>']
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<s-space>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" ----------------------------------------------
 " Setup Misc Vim Behaviours
 " ----------------------------------------------
 
@@ -362,7 +383,7 @@ let g:SuperTabCrMapping = 0
 highlight RedundantSpaces term=standout ctermbg=red guibg=red
 match RedundantSpaces /\s\+$\| \+\ze\t/ "\ze sets end of match so only spaces highlighted
 
-" A whole bunch of NERDTree configuration stolen from carlhuda's janus
+" A whole bunch of NERDTcall ree configuration stolen from carlhuda's janus
 let NERDTreeIgnore=['\.rbc$', '\~$']
 
 " Make NERDTree close when you open a file from it. Helps recover screen space!
