@@ -374,11 +374,9 @@ imap <expr><TAB> neosnippet#jumpable() ?
 
 imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "<TAB>"
 
-" Space to insert a snippet
-imap <expr><Space> pumvisible() ?
-  \ neosnippet#expandable() ?
+" <Shift-Space> to insert a snippet
+imap <expr><s-Space> neosnippet#expandable() ?
     \ "\<Plug>(neosnippet_expand)"
-    \ : <SID>my_space_function()
   \ : "\<space>"
 
 

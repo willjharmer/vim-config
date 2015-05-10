@@ -53,8 +53,9 @@ For this config, the leader is the comma button. This is shown in the following 
 
 ## Using Autocompletion & Snippets
 When typing a word, Autocompletion examples will pop up.
-`<tab>` will move through the list of completions. Words will show in place, pressing `<space>` will leave the selected completion in place and add a space so you can continue typing.
-If the completion is a snippet (a short template with sections to fill out) you can press `<space>` to insert it, then use `<tab>` to fill in the template slots.
+`<tab>` to move through the list (`<shift-tab>` to move backwards)
+`<space>` will leave the selected completion in place and add a space so you can continue typing.
+If the completion is a snippet (a short template with sections to fill out), you can press `<shift-space>` to insert it and then use `<tab>` to fill in the template slots.
 
 ## Plugins - all the goodies!
 See the plugins' web pages for more information. The keybindings listed are mostly
