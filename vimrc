@@ -363,13 +363,22 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
+" Tab over snippets sections when completing
+imap <expr><TAB> neosnippet#jumpable() ?
+  \ "\<Plug>(neosnippet_jump)"
   \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: "\<TAB>"
+smap <expr><TAB> neosnippet#jumpable() ?
+  \ "\<Plug>(neosnippet_jump)"
+  \: pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Space to insert a snippet
+imap <expr><space> neosnippet#expandable() ?
+  \ "\<Plug>(neosnippet_expand)"
+  \: pumvisible() ? "\<C-n>" : "\<space>"
+smap <expr><space> neosnippet#expandable() ?
+  \ "\<Plug>(neosnippet_expand)"
+  \: pumvisible() ? "\<C-n>" : "\<space>"
+
 
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1

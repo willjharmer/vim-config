@@ -51,6 +51,11 @@ A large number of the useful commands in Vim start with the 'leader' key, so Vim
 
 For this config, the leader is the comma button. This is shown in the following notes as `<space>`
 
+## Using Autocompletion & Snippets
+When typing a word, Autocompletion examples will pop up.
+`<tab>` will move through the list of completions. Words will show in place, pressing `<space>` will leave the selected completion in place and add a space so you can continue typing.
+If the completion is a snippet (a short template with sections to fill out) you can press `<space>` to insert it, then use `<tab>` to fill in the template slots.
+
 ## Plugins - all the goodies!
 See the plugins' web pages for more information. The keybindings listed are mostly
 just those defined or overridden locally, not the ones provided by default.
