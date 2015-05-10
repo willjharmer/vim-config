@@ -93,14 +93,13 @@ Keys               | Function
   `<space>` `cF`   | Toggle text or background colouring
 
 
-### CtrlP
-Fast file navigation for VIM ([more](https://github.com/kien/ctrlp.vim))
+### Command-T
+Fast file navigation for VIM ([more](https://github.com/wincent/command-T))
 
 Keys               | Function
 -------------------|--------------------
-  `Ctrl` + `p`     | Open the CtrlP fuzzy search
-  `<space>` `f`    | Refresh the cache and open the CtrlP fuzzy search
-  `<space>` `F`    | Open CtrlP searching for files in the same directory as the current file
+  `<space>` `f`    | Find files in the current project
+  `<space>` `b`    | Find buffers in the current project
 
 Once the search window is open, you can use the following:
 

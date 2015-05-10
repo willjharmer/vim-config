@@ -22,10 +22,10 @@ Plug 'tpope/vim-unimpaired'
 " Search and file exploring
 Plug 'ack.vim'
 Plug 'bufexplorer.zip'
-Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-projectionist'
+Plug 'wincent/command-t', {'do': 'cd ruby/command-t; ruby extconf.rb; make'}
 
 " Additional contextual information
 Plug 'AutoTag'
@@ -168,8 +168,8 @@ vnoremap <silent> <Leader>a: :Tabularize /\w:\zs/l0l1<CR>
 vnoremap <silent> <Leader>a<space> :Tabularize /[^ ] \+\zs/l0r1<CR>
 
 "  <Leader>f to clear cache and fuzzy search files; ,F in current file's directory
-map <silent> <leader>f :ClearCtrlPCache<cr>\|:CtrlP<cr>
-map <silent> <leader>F :ClearCtrlPCache<cr>\|:CtrlPCurFile<cr>
+nnoremap <silent> <leader>f :CommandT<CR>
+nnoremap <silent> <leader>b :CommandTBuffer<CR>
 
 "  <Leader>g to jump to the next change since git commit
 "  <Leader>G to jump to the last change since git commit
@@ -540,12 +540,6 @@ function! NumberToggle()
 endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
-
-" Set ctrlp to ignore files in the VCS directories
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|\.bzr|dist|tmp|log|public|node_modules|vendor)$',
-  \ 'file': '\v\.(exe|so|dll|swp|DS_Store|zip|jar)$',
-  \ }
 
 "  Set the git gutter colors to be the same as the number column
 hi clear SignColumn
