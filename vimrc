@@ -304,7 +304,7 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_min_syntax_length = 2
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
@@ -371,6 +371,8 @@ smap <expr><TAB> neosnippet#jumpable() ?
   \ "\<Plug>(neosnippet_jump)"
   \: pumvisible() ? "\<C-n>" : "\<TAB>"
 
+imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "<TAB>"
+
 " Space to insert a snippet
 imap <expr><space> neosnippet#expandable() ?
   \ "\<Plug>(neosnippet_expand)"
@@ -385,9 +387,6 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-
-" Force snippets to appear last
-"let g:neocoplcache_source_rank = {'snippets_complete': 1000}
 
 " ----------------------------------------------
 " Map Uncommon Filetype for Syntax Highlighting
@@ -445,10 +444,6 @@ autocmd FileType make set noexpandtab
 
 " Extend % to do/end etc
 runtime! plugin/matchit.vim
-
-" Fix supertab/endwise incompatibility
-let g:SuperTabCrMapping = 0
-let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Highlight trailing whitespace
 highlight RedundantSpaces term=standout ctermbg=red guibg=red
