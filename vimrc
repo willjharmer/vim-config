@@ -414,14 +414,6 @@ imap <expr><s-Space> neosnippet#expandable() ?
     \ "\<Plug>(neosnippet_expand)"
   \ : "\<space>"
 
-" ----------------------------------------------
-" Copy file path details to the system clipboard
-" ----------------------------------------------
-
-nmap <leader>cp :CopyRelativePath<CR>
-nmap <leader>cP :CopyAbsolutePath<CR>
-nmap <leader>cf :CopyFileName<CR>
-nmap <leader>cd :CopyDirectoryPath<CR>
 
 " ----------------------------------------------
 " Copy file path details to the system clipboard
