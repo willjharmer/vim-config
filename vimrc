@@ -375,7 +375,6 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 " Plugin key-mappings.
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
-inoremap <expr><BS>  neocomplcache#undo_completion()
 
 " <CR>: close popup and save indent.
 inoremap <silent><CR> <C-r>=<SID>complete_and_cr()<CR>
