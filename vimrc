@@ -373,28 +373,14 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 " Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+inoremap <expr><BS>  neocomplcache#undo_completion()
 
 " <CR>: close popup and save indent.
-inoremap <silent><CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
+inoremap <silent><CR> <C-r>=<SID>complete_and_cr()<CR>
+function! s:complete_and_cr()
   return neocomplcache#smart_close_popup() . "\<CR>"
-endfunction
-
-" <Space>: close popup and add space
-"inoremap <silent><Space> <C-r>=<SID>my_space_function()<CR>
-function! s:my_space_function()
-  return neocomplcache#smart_close_popup() . "\<Space>"
 endfunction
 
 " Tab over snippets sections when completing
@@ -406,8 +392,13 @@ imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "<TAB>"
 
 " <Shift-Space> to insert a snippet
 imap <expr><s-Space> neosnippet#expandable() ?
-    \ "\<Plug>(neosnippet_expand)"
-  \ : "\<space>"
+  \ "\<Plug>(neosnippet_expand)"
+  \: "\<space>"
+
+" <C-L> to insert a snippet (as S-space doesn't work in most terminals)
+imap <expr><C-L> neosnippet#expandable() ?
+  \ "\<Plug>(neosnippet_expand)"
+  \: "\<c-l>"
 
 " ----------------------------------------------
 " Copy file path details to the system clipboard
