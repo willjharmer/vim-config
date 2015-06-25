@@ -377,6 +377,10 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
 
+" Tell Neosnippet which file types are aliases of others
+let g:neosnippet#scope_aliases = {}
+let g:neosnippet#scope_aliases['ruby'] = 'ruby,ruby-rails'
+
 " Plugin key-mappings.
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
@@ -394,15 +398,10 @@ imap <expr><TAB> neosnippet#jumpable() ?
 
 imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "<TAB>"
 
-" <Shift-Space> to insert a snippet
-imap <expr><s-Space> neosnippet#expandable() ?
-  \ "\<Plug>(neosnippet_expand)"
-  \: "\<space>"
-
-" <C-L> to insert a snippet (as S-space doesn't work in most terminals)
-imap <expr><C-L> neosnippet#expandable() ?
-  \ "\<Plug>(neosnippet_expand)"
-  \: "\<c-l>"
+" <c-x> to insert a snippet
+imap <c-x> <Plug>(neosnippet_expand)
+smap <c-x> <Plug>(neosnippet_expand)
+xmap <c-x> <Plug>(neosnippet_expand_target)
 
 
 " ----------------------------------------------
