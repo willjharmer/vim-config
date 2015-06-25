@@ -375,7 +375,7 @@ let g:neocomplcache_force_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
 
 " Plugin key-mappings.
 inoremap <expr><C-y>  neocomplcache#close_popup()
