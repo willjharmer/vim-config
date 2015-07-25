@@ -53,6 +53,7 @@ Plug 'Shougo/neocomplcache'
 Plug 'Shougo/neosnippet'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-endwise'
+Plug 'justinj/vim-react-snippets'
 
 " Extra syntax highlighting and language support
 Plug 'scrooloose/syntastic'
@@ -70,6 +71,7 @@ Plug 'digitaltoad/vim-jade'
 Plug 'groenewege/vim-less'
 Plug 'othree/html5.vim',               {'for': 'html'}
 Plug 'pangloss/vim-javascript',        {'for': 'javascript'}
+Plug 'mxw/vim-jsx',                    {'for': 'javascript.jsx'}
 Plug 'plasticboy/vim-markdown'
 Plug 'vim-coffee-script'
 
@@ -375,11 +377,13 @@ let g:neocomplcache_force_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
+let g:neosnippet#snippets_directory= ['~/.vim/plugged/vim-snippets/snippets', '~/.vim/plugged/vim-react-snippets/snippets' ]
 
 " Tell Neosnippet which file types are aliases of others
 let g:neosnippet#scope_aliases = {}
 let g:neosnippet#scope_aliases['ruby'] = 'ruby,ruby-rails'
+let g:neosnippet#scope_aliases['jsx'] = 'javascript,jsx'
+let g:neosnippet#scope_aliases['javascript.jsx'] = 'javascript,jsx'
 
 " Plugin key-mappings.
 inoremap <expr><C-y>  neocomplcache#close_popup()
@@ -726,6 +730,12 @@ let g:projectionist_heuristics ={
       \     "spec/*_spec.rb": {"alternate": ["app/{}.rb","lib/{}.rb"], "type": "test"}
       \  }
       \}
+
+" Get jsx highlighting in files regardless of ending in .jsx (ie. .jsx.coffee)
+let g:jsx_ext_required = 0
+
+" Add esLint to Syntastic js checkers
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Show current line highlighting only in the active pane
 augroup BgHighlight
