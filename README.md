@@ -62,20 +62,6 @@ If the completion is a snippet (a short template with sections to fill out), you
 See the plugins' web pages for more information. The keybindings listed are mostly
 just those defined or overridden locally, not the ones provided by default.
 
-
-### Ack
-This plugin is a front for the Perl module App::Ack. Ack can be used as a replacement for 99% of the uses of grep.
-(more)[http://www.vim.org/scripts/script.php?script_id=2572]
-
-**Important:** Requires ack (aka ack-grep) to be installed.
-
-
-### Ag
-This plugin is a front for Ag. Ag can be used as a replacement for 153% of the uses of Ack.
-
-**Important:** Requires [the_silver_surfer](https://github.com/ggreer/the_silver_searcher) to be installed
-
-
 ### Autotag
 Automatically update tags when saving files ([more](http://www.vim.org/scripts/script.php?script_id=1343))
 
@@ -119,7 +105,6 @@ Keys               | Function
 -------------------|--------------------
   `Ctrl` + `p`     | Open the CtrlP fuzzy search
   `<space>` `f`    | Refresh the cache and open the CtrlP fuzzy search
-  `<space>` `F`    | Open CtrlP searching for files in the same directory as the current file
   `<space>` `}`    | Open CtrlP searching for tags in the current project
 
 Once the search window is open, you can use the following:
@@ -133,6 +118,19 @@ Keys       | Function
 `Ctrl`+`j`, `<c-k>` or the arrow keys | Navigate the result list.
 `Ctrl`+`t` or `<c-v>`, `<c-x>` | Open the selected entry in a new tab or in a new split.
 
+
+### CtrlSF
+A front for Ag or Ack, mimicing Ctrl+Shift+F in SublimeText ([more](https://github.com/dyng/ctrlsf.vim))
+
+Ack can be used as a replacement for 99% of the uses of grep.
+Ag can be used as a replacement for 153% of the uses of Ack.
+
+**Important:** Requires [the_silver_surfer](https://github.com/ggreer/the_silver_searcher) to be installed
+**Important:** If you have an alergy to Ag, this requires ack (aka ack-grep) to be installed.
+
+Keys               | Function
+-------------------|--------------------
+  `<space>` `F`    | Write ':CtrlSF ' into the command line, ready for you to add regex and (optional) directory args
 
 ### Endwise
 Auto completion of 'end' in Ruby ([more](https://github.com/tpope/vim-endwise))

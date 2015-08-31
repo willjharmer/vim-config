@@ -24,10 +24,9 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-unimpaired'
 
 " Search and file exploring
-Plug 'ack.vim'
+Plug 'dyng/ctrlsf.vim'
 Plug 'bufexplorer.zip'
 Plug 'kien/ctrlp.vim'
-Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-projectionist'
 
@@ -206,9 +205,8 @@ vnoremap <silent> <Leader>a\| :Tabularize /\|<CR>
 vnoremap <silent> <Leader>a: :Tabularize /\w:\zs/l0l1<CR>
 vnoremap <silent> <Leader>a<space> :Tabularize /[^ ] \+\zs/l0r1<CR>
 
-"  <Leader>f to clear cache and fuzzy search files; ,F in current file's directory
+"  <Leader>f to clear cache and fuzzy search files
 map <silent> <leader>f :ClearCtrlPCache<cr>\|:CtrlP<cr>
-map <silent> <leader>F :ClearCtrlPCache<cr>\|:CtrlPCurFile<cr>
 
 "  <Leader>} to Search for a tag in the current project
 map <silent> <leader>} :CtrlPTag<cr>
@@ -453,15 +451,21 @@ endif
 let g:ansible_options = {'ignore_blank_lines': 0}
 
 " ----------------------------------------------
-" Setup CtrlP File Finder
+" Setup File Finders
 " ----------------------------------------------
 
 let g:ctrlp_show_hidden = 1
 
-" Use Ag for search if its available on this system
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
+nmap <Leader>F <Plug>CtrlSFPrompt
+vmap <Leader>F <Plug>CtrlSFVwordExec
+
+" Default ctrlsf to searching for a Regex
+let g:ctrlsf_regex_pattern = 1
+
+let g:ctrlsf_mapping = {
+    \ "next": "n",
+    \ "prev": "N",
+    \ }
 
 " ----------------------------------------------
 " Setup Misc Vim Behaviours

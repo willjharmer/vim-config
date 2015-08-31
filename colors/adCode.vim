@@ -38,6 +38,10 @@ hi NERDTreeCWD                guifg=#AFFF4B ctermfg=155  gui=NONE cterm=NONE
 hi NERDTreeDir                guifg=#1897DD ctermfg=32   gui=NONE cterm=NONE
 hi NERDTreeDirSlash           guifg=#1897DD ctermfg=32   gui=NONE cterm=NONE
 hi NERDTreeUp                 guifg=#45C2FB ctermfg=75   gui=NONE cterm=NONE
+hi ctrlsfFilename             guifg=#F0F040 ctermfg=227  gui=NONE cterm=NONE
+hi ctrlsfCuttingLine          guifg=#FEC833 ctermfg=221  gui=NONE cterm=NONE
+hi ctrlsfLnumMatch            guifg=#59DC4C ctermfg=77   gui=NONE cterm=NONE
+hi ctrlsfMatch                guifg=#151718 ctermfg=233  guibg=#FEC833 ctermbg=221  gui=NONE cterm=NONE
 hi GitGutterAdd               guifg=#33FF33 ctermfg=83   guibg=#115511 ctermbg=22   gui=NONE cterm=NONE
 hi GitGutterAddLine           guifg=NONE    ctermfg=NONE guibg=#063806 ctermbg=22   gui=NONE cterm=NONE
 hi GitGutterChange            guifg=#FFFF33 ctermfg=227  guibg=#757500 ctermbg=100  gui=NONE cterm=NONE
