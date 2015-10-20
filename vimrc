@@ -442,7 +442,6 @@ elseif has('mac')
 elseif has("unix")
   set guifont=DejaVu\ Sans\ Mono\ 10
   " if you don't have these fonts, set one in your ~/vim.local file like this:
-  " else
   "   set guifont=fontname\ 10
 endif
 
