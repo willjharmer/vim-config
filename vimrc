@@ -733,9 +733,6 @@ let g:projectionist_heuristics ={
 " Get jsx highlighting in files regardless of ending in .jsx (ie. .jsx.coffee)
 let g:jsx_ext_required = 0
 
-" Add esLint to Syntastic js checkers
-let g:syntastic_javascript_checkers = ['eslint']
-
 " Show current line highlighting only in the active pane
 augroup BgHighlight
   autocmd!
