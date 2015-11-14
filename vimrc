@@ -49,9 +49,7 @@ Plug 'tpope/vim-surround'
 Plug 'maxbrunsfeld/vim-yankstack'
 
 " Snippets and autocomplete
-Plug 'Shougo/neocomplcache'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'honza/vim-snippets'
 Plug 'justinj/vim-react-snippets'
 
@@ -346,26 +344,6 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 " ----------------------------------------------
 " Auto-complete shortcuts
 " ----------------------------------------------
-let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_min_syntax_length = 2
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-    \   'default' : '',
-    \   'vimshell' : $HOME.'/.vimshell_hist',
-    \   'scheme' : $HOME.'/.gosh_completions'
-    \ }
-
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -373,48 +351,6 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplcache_force_omni_patterns')
-  let g:neocomplcache_force_omni_patterns = {}
-endif
-
-let g:neocomplcache_force_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory= ['~/.vim/plugged/vim-snippets/snippets', '~/.vim/plugged/vim-react-snippets/snippets' ]
-
-" Tell Neosnippet which file types are aliases of others
-let g:neosnippet#scope_aliases = {}
-let g:neosnippet#scope_aliases['ruby'] = 'ruby,ruby-rails'
-let g:neosnippet#scope_aliases['jsx'] = 'javascript,jsx'
-let g:neosnippet#scope_aliases['javascript.jsx'] = 'javascript,jsx'
-
-" Plugin key-mappings.
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
-" <CR>: close popup and save indent.
-inoremap <silent><CR> <C-r>=<SID>complete_and_cr()<CR>
-function! s:complete_and_cr()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-endfunction
-
-" Tab over snippets sections when completing
-imap <expr><TAB> neosnippet#jumpable() ?
-  \ "\<Plug>(neosnippet_jump)"
-  \: pumvisible() ? "\<C-n>" : "\<TAB>"
-
-imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "<TAB>"
-
-" <c-x> to insert a snippet
-imap <c-x> <Plug>(neosnippet_expand)
-smap <c-x> <Plug>(neosnippet_expand)
-xmap <c-x> <Plug>(neosnippet_expand_target)
-
 
 " ----------------------------------------------
 " Copy file path details to the system clipboard
