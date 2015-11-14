@@ -51,6 +51,7 @@ Plug 'maxbrunsfeld/vim-yankstack'
 " Snippets and autocomplete
 Plug 'Shougo/neocomplcache'
 Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 Plug 'justinj/vim-react-snippets'
 
