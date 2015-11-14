@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'AdamWhittingham/projector_mode'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'AndrewRadev/switch.vim'
 Plug 'colorizer'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ervandew/supertab'
@@ -57,6 +58,9 @@ Plug 'justinj/vim-react-snippets'
 Plug 'scrooloose/syntastic'
 Plug 'vim-coffee-script'
 Plug 'plasticboy/vim-markdown',        {'for': 'markdown'}
+Plug 'elixir-lang/vim-elixir'
+Plug 'chase/vim-ansible-yaml'
+Plug 'kien/rainbow_parentheses.vim'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -68,6 +72,7 @@ Plug 'vroom',                          {'for': 'ruby'}
 
 " CSS & HTML
 Plug 'cakebaker/scss-syntax.vim',      {'for': 'css'}
+Plug 'tpope/vim-haml'
 Plug 'digitaltoad/vim-jade',           {'for': 'jade'}
 Plug 'groenewege/vim-less',            {'for': 'less'}
 Plug 'othree/html5.vim',               {'for': 'html'}
@@ -75,12 +80,6 @@ Plug 'othree/html5.vim',               {'for': 'html'}
 " Javascript
 Plug 'pangloss/vim-javascript',        {'for': 'javascript'}
 Plug 'mxw/vim-jsx',                    {'for': 'javascript.jsx'}
-
-" Misc Languages
-Plug 'elixir-lang/vim-elixir'
-Plug 'tpope/vim-haml'
-Plug 'chase/vim-ansible-yaml'
-Plug 'kien/rainbow_parentheses.vim'
 
 if filereadable(expand("~/.vim.plugins.local"))
   source ~/.vim.plugins.local
