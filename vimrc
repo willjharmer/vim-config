@@ -10,7 +10,6 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
 Plug 'colorizer'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'gregsexton/MatchTag'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -48,8 +47,10 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'maxbrunsfeld/vim-yankstack'
 
-" Snippets and autocomplete
+" Autocomplete and Snippets
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'SirVer/ultisnips'
+Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'justinj/vim-react-snippets'
 
@@ -351,6 +352,22 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Look in the tags file for things to autocomplete
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+" Keep the YCM Server from producing too much stuff we're not reading
+let g:ycm_server_log_level = 'warning'
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<C-x>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " ----------------------------------------------
 " Copy file path details to the system clipboard
