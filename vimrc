@@ -62,6 +62,7 @@ Plug 'plasticboy/vim-markdown',        {'for': 'markdown'} " Markdown syntax hig
 Plug 'elixir-lang/vim-elixir'                              " Elixir syntax highlighting
 Plug 'chase/vim-ansible-yaml'                              " Extra alignment & syntax for Ansible playbooks
 Plug 'niquola/vim-hl7'                                     " HL7 syntax highlighting
+Plug 'hashivim/vim-terraform'                              " Hashicorp Terraform config highlighting
 
 " Ruby
 Plug 'vim-ruby/vim-ruby',              {'for': 'ruby'}     " Bleeding edge Ruby support
