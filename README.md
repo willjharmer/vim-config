@@ -303,6 +303,11 @@ Keys               | Function
 -------------------|-------------------
   `<space>` `]`    | toggle the sidebar
 
+
+### Targets.vim
+Additional text objects for faster editings ([more](https://github.com/wellle/targets.vim)).
+Take 2 minutes to skim the list of things added; most of them are things you'd want vim to do out of the box.
+
 ### UltiSnips
 Snippet expansion ([more](https://github.com/SirVer/ultisnips))
 
@@ -311,10 +316,6 @@ Keys                | Function
   `<Ctrl>``x`       | If the selection is a snippet, expand the snippet
   `<tab>`           | Move to the next part of the snippet which can be edited
 
-
-### Targets.vim
-Additional text objects for faster editings ([more](https://github.com/wellle/targets.vim)).
-Take 2 minutes to skim the list of things added; most of them are things you'd want vim to do out of the box.
 
 ### unimpaired
 Pairs of handy bracket maps ([more](http://www.vim.org/scripts/script.php?script_id=1590))
