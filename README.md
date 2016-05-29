@@ -133,34 +133,20 @@ Keys               | Function
   `<space>` `cf`   | Copy the files basename
 
 
-### CtrlP
-Fast file navigation for VIM ([more](https://github.com/kien/ctrlp.vim))
-
-Keys               | Function
--------------------|--------------------
-  `Ctrl` + `p`     | Open the CtrlP fuzzy search
-  `<space>` `f`    | Refresh the cache and open the CtrlP fuzzy search
-  `<space>` `F`    | Open CtrlP searching for files in the same directory as the current file
-  `<space>` `}`    | Open CtrlP searching for tags in the current project
-
-Once the search window is open, you can use the following:
-
-Keys       | Function
--------------------|--------------------
-`F5`       | Purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
-`Ctrl`+`f` | Cycle between things to search (files, buffers, recently used files)
-`Ctrl`+`d` | Switch to filename only search instead of full path.
-`Ctrl`+`r` | Switch to regexp mode.
-`Ctrl`+`j`, `<c-k>` or the arrow keys | Navigate the result list.
-`Ctrl`+`t` or `<c-v>`, `<c-x>` | Open the selected entry in a new tab or in a new split.
-
 
 ### Endwise
 Auto completion of 'end' in Ruby ([more](https://github.com/tpope/vim-endwise))
 
 
-### Elixir
-Elixir language support ([more](https://github.com/elixir-lang/vim-elixir))
+### FZF
+Fast file navigation for VIM ([more](https://github.com/junegunn/fzf.vim))
+
+Keys               | Function
+-------------------|--------------------
+  `<space>` `f`    | Fuzzy search for the file
+  `<space>` `F`    | Fuzzy search for files in the same directory as the current file
+  `<space>` `]`    | Fuzzy search tags (methods/functions) in the project
+  `<space>` `}`    | Fuzzy search tags (methods/functions) in the current file
 
 
 ### Gutentags
@@ -231,14 +217,15 @@ A set of mappings for HTML, XML, PHP, ASP, eRuby, JSP, and more ([more](http://w
 ### RainbowParenthesis
 Highlight all brachets based on their level. Helpful for working out the scope of nested things. ([more](https://github.com/luochen1990/rainbow))
 
-Want to disable this by default? Add the following to your `~/.vimrc.local` file:
+Want to enable this by default? Add the following to your `~/.vimrc.local` file:
 ```
-let g:rainbow_active = 0
+let g:rainbow_active = 1
 ```
 
 Keys               | Function
 -------------------|---------------------------------------------
   `<leader>` `)`    | Toggle rainbow highlighting of brachets
+
 
 ### repeat
 Use the repeat command (.) with supported plugins ([more](http://www.vim.org/scripts/script.php?script_id=2136))
@@ -299,14 +286,6 @@ Keys               | Function
   `<space>` `a{`   | Align on {
   `<space>` `a|`   | Align on |
   `<space>` `a<space>` | Align on spaces
-
-
-### Tagbar
-Sidebar for showing and navigating the tags in current file ([more](https://github.com/majutsushi/tagbar))
-
-Keys               | Function
--------------------|-------------------
-  `<space>` `]`    | toggle the sidebar
 
 
 ### Targets.vim

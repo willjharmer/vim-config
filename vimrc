@@ -21,7 +21,8 @@ Plug 'tpope/vim-repeat'                                       " Make many more o
 
 " Search and file exploring
 Plug 'jlanzarotta/bufexplorer'                                " Show a sortable list of open buffers
-Plug 'ctrlpvim/ctrlp.vim'                                     " Really powerful fuzzy finder for file names
+Plug 'junegunn/fzf', {'do': './install --bin'}                " Compile FZF for asyc search & completetions
+Plug 'junegunn/fzf.vim'                                       " Really powerful fuzzy finder which is a bit fast but needs external dependency
 Plug 'rking/ag.vim'                                           " Really fast search for text in all files
 Plug 'scrooloose/nerdtree'                                    " Visualise the project directory and make it easy to navigate
 Plug 'tpope/vim-unimpaired'                                   " Extra bindings for common buffer navigation
@@ -30,7 +31,6 @@ Plug 'tpope/vim-unimpaired'                                   " Extra bindings f
 Plug 'AdamWhittingham/vim-copy-filename'                      " Quick shortcuts for copying the file name, path and/or line number
 Plug 'gregsexton/MatchTag'                                    " Highlight the matching opening or closing tag in HTML/XML
 Plug 'ludovicchabant/vim-gutentags'                           " Better automated generation and update of ctags files
-Plug 'majutsushi/tagbar'                                      " Visualise and navigate all the ctags found in the current file
 Plug 'tpope/vim-projectionist'                                " Map tools and actions based on the project
 
 " Extra text manipulation and movement
@@ -270,13 +270,16 @@ vmap a <Plug>(LiveEasyAlign)
 map <silent> <leader>c<space> gcc
 
 "  <Leader>f to fuzzy search files
-map <silent> <leader>f :CtrlP<cr>
+map <silent> <leader>f :Files<cr>
 
 "  <Leader>F to fuzzy search files in the same directory as the current file
-map <silent> <leader>F :CtrlPCurFile<cr>
+map <silent> <leader>F :Files %:p<cr>
 
 "  <Leader>} to Search for a tag in the current project
-map <silent> <leader>} :CtrlPTag<cr>
+map <silent> <leader>] :Tags<cr>
+
+"  <Leader>} to Search for a tag in the current project
+map <silent> <leader>} :BTags<cr>
 
 "  <Leader>g to jump to the next change since git commit
 nmap <leader>g <Plug>GitGutterNextHunk
@@ -293,8 +296,8 @@ nmap ga <Plug>(EasyAlign)
 "  <Leader>gt to toggle the gutter
 nmap <leader>gt :GitGutterToggle<CR>
 
-"  <Leader>gh highlight changed lines
-nmap <leader>gh :GitGutterLineHighlightsToggle<CR>
+" <leader>gh to show git commits in the current buffer
+nmap <leader>gh :BCommits<CR>
 
 " <Leager>ga to add the current git hunk to git staging
 nmap <Leader>ga <Plug>GitGutterStageHunk
@@ -580,10 +583,23 @@ autocmd User Startified setlocal buftype=
 
 
 " ----------------------------------------------
-" Setup CtrlP File Finder
+" Setup FZF File Finder
 " ----------------------------------------------
 
-let g:ctrlp_show_hidden = 1
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
 
 " Use Ag for search if its available on this system
 if executable('ag')
