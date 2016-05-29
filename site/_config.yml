@@ -1,0 +1,19 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: AdVim - Adam's Vim Config
+email: adam@devmountain.co.uk
+description: > # this means to ignore newlines until "baseurl:"
+  An awesome Vim config for development, slow roasted with a Ruby twist and a double shot of web-dev.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: adamwhittingham
+github_username:  adamwhittingham
+
+# Build settings
+markdown: kramdown
