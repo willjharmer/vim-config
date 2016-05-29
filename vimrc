@@ -60,6 +60,7 @@ Plug 'scrooloose/syntastic'                                   " The Godfather of
 Plug 'sheerun/vim-polyglot'                                   " Currated group of other excellent plugins
 Plug 'niquola/vim-hl7'                                        " HL7 syntax highlighting
 Plug 'hashivim/vim-terraform'                                 " Hashicorp Terraform config highlighting
+Plug 'slashmili/alchemist.vim'                                " Hook into Elixir Alchemist server for better completions'
 
 " Ruby
 Plug 'tpope/vim-rbenv'                                        " Use rbenv for Ruby tools
